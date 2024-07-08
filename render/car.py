@@ -1,6 +1,6 @@
 # ------------------ IMPORTS ------------------
 
-
+from typing import List
 import pygame
 import math
 from render.colors import Color
@@ -40,7 +40,7 @@ class Car:
     DRAW_SENSORS = True
     SENSORS_DRAW_DISTANCE = 1920
 
-    def __init__(self, start_position: list):
+    def __init__(self, start_position: List):
         # The _sprite is the untouched sprite (not rotated) while the sprite is the one which will be moved around
         self._sprite = pygame.image.load(CAR_SPRITE_PATH).convert_alpha()
 
@@ -219,16 +219,16 @@ class Car:
         for sensor_angle in range(-90, 90 + 1, 45):
             self.check_sensor(sensor_angle, track)
 
-    def get_data(self) -> list[int]:
+    def get_data(self) -> List[int]:
         """Get the data of the car's sensors
 
         Returns:
-            list[int]: The list of the sensors' distances
+            List[int]: The List of the sensors' distances
         """
         # Get distances to border
         distances = [int(sensor[1]) for sensor in self.sensors]
 
-        # Ensure list has five elements (to correspond to)
+        # Ensure List has five elements (to correspond to)
         distances += [0] * (5 - len(distances))
 
         return distances

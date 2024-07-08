@@ -1,6 +1,6 @@
 # ------------------ IMPORTS ------------------
 
-
+from typing import List
 import pygame
 from render.colors import Color
 
@@ -26,7 +26,7 @@ class Node:
     CONNECTION_WIDTH = 1
     FONT = pygame.font.SysFont("comicsans", 15)
 
-    def __init__(self, id: int, x: int, y: int, type: NodeType, colors: list[Color], label: str = "", index: int = 0):
+    def __init__(self, id: int, x: int, y: int, type: NodeType, colors: List[Color], label: str = "", index: int = 0):
         self.id = id
         self.x = x
         self.y = y
