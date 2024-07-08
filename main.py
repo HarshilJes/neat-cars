@@ -9,7 +9,7 @@ from render.engine import Engine
 
 NEAT_CONFIG_PATH = "ai/config.txt"
 RAY_CAST = True
-MAX_SIMULATIONS = 1000
+MAX_SIMULATIONS = 25
 
 
 # ------------------ MAIN FUNCTION ------------------

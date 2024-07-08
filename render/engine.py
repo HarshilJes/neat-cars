@@ -7,7 +7,7 @@ from ai.car_ai import CarAI
 from render.car import Car
 import time
 from render.colors import Color
-
+import pickle
 
 # ------------------ CLASSES ------------------
 
@@ -148,8 +148,11 @@ class Engine:
             population.add_reporter(neat.StatisticsReporter())
 
         # Run simulation for MAX_SIMULATION generations
-        population.run(self.run_simulation, self.MAX_SIMULATIONS)
-        
+        winner=population.run(self.run_simulation, self.MAX_SIMULATIONS)
+        with open("winner.pkl", "wb") as f:
+            pickle.dump(winner, f)
+            f.close()
+            exit()
 
     def run_simulation(self, genomes: neat.DefaultGenome, config: neat.Config) -> None:
         """Run the simulation (evolutionarily)
